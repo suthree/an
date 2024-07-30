@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["cross_platform", "inherit_metadata"]
 lock_version = "4.4.2"
-content_hash = "sha256:059acdfb085f39d21cffa01bd37ab0af071e8b78e7b2fe852ef3ff1a5d723ca7"
+content_hash = "sha256:5cf6c7a9403b65adaa49a241d906c4b530d33dd3929e0a541b18b666a05b76d2"
 
 [[package]]
 name = "asgiref"
@@ -32,6 +32,35 @@ dependencies = [
 files = [
     {file = "Django-5.0.7-py3-none-any.whl", hash = "sha256:f216510ace3de5de01329463a315a629f33480e893a9024fc93d8c32c22913da"},
     {file = "Django-5.0.7.tar.gz", hash = "sha256:bd4505cae0b9bd642313e8fb71810893df5dc2ffcacaa67a33af2d5cd61888f2"},
+]
+
+[[package]]
+name = "django-cors-headers"
+version = "4.4.0"
+requires_python = ">=3.8"
+summary = "django-cors-headers is a Django application for handling the server headers required for Cross-Origin Resource Sharing (CORS)."
+groups = ["default"]
+dependencies = [
+    "asgiref>=3.6",
+    "django>=3.2",
+]
+files = [
+    {file = "django_cors_headers-4.4.0-py3-none-any.whl", hash = "sha256:5c6e3b7fe870876a1efdfeb4f433782c3524078fa0dc9e0195f6706ce7a242f6"},
+    {file = "django_cors_headers-4.4.0.tar.gz", hash = "sha256:92cf4633e22af67a230a1456cb1b7a02bb213d6536d2dcb2a4a24092ea9cebc2"},
+]
+
+[[package]]
+name = "django-filter"
+version = "24.2"
+requires_python = ">=3.8"
+summary = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+groups = ["default"]
+dependencies = [
+    "Django>=4.2",
+]
+files = [
+    {file = "django-filter-24.2.tar.gz", hash = "sha256:48e5fc1da3ccd6ca0d5f9bb550973518ce977a4edde9d2a8a154a7f4f0b9f96e"},
+    {file = "django_filter-24.2-py3-none-any.whl", hash = "sha256:df2ee9857e18d38bed203c8745f62a803fa0f31688c9fe6f8e868120b1848e48"},
 ]
 
 [[package]]
