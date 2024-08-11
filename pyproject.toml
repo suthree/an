@@ -10,6 +10,14 @@ dependencies = [
     "pymysql>=1.1.1",
     "django-filter>=24.2",
     "django-cors-headers>=4.4.0",
+    "toml>=0.10.2",
+    "fake-useragent>=1.5.1",
+    "cryptography>=43.0.0",
+    "django-apscheduler>=0.6.2",
+    "ipdb>=0.13.13",
+    "pypinyin>=0.52.0",
+    "pyexecjs>=1.5.1",
+    "requests>=2.32.3",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
@@ -21,5 +29,5 @@ distribution = false
 
 
 [tool.pdm.scripts]
-m1 = "manage.py makemigrations"
+m1 = "python manage.py makemigrations"
 m2 = "python manage.py migrate"

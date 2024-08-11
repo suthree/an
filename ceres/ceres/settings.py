@@ -10,14 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 import pymysql
+import toml
+
+ENV_NAME = "dev"
 
 pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+CONFIG_PATH = os.path.join(BASE_DIR, f"config/{ENV_NAME}.toml")
+configs = toml.load(CONFIG_PATH)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -80,19 +85,15 @@ WSGI_APPLICATION = "ceres.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-
+mysql_config = configs["mysql"]
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # },
     "default": {
-        "ENGINE": "django.db.backends.mysql",  # 使用 MySQL 引擎
-        "NAME": "an_dev",  # 数据库名
-        "USER": "wei",  # 数据库用户名
-        "PASSWORD": "awei123",  # 数据库用户密码
-        "HOST": "rm-uf6qx7u0fndtxrp0avo.mysql.rds.aliyuncs.com",  # 数据库主机地址
-        "PORT": "3306",  # 数据库端口
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": mysql_config["db"],
+        "HOST": mysql_config["host"],
+        "PORT": mysql_config["port"],
+        "USER": mysql_config["user"],
+        "PASSWORD": mysql_config["password"],
     }
 }
 
@@ -142,5 +143,6 @@ REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAdminUser",
     ],
+    "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "PAGE_SIZE": 10,
 }

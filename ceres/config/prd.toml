@@ -1,0 +1,6 @@
+[mysql]
+host = "rm-uf6qx7u0fndtxrp0avo.mysql.rds.aliyuncs.com"
+port = 3306
+user = "wei"
+password = "awei123"
+db = "an_prd"
